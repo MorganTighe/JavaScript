@@ -5,7 +5,7 @@ var tbody = d3.select("tbody");
 console.log(tbody);
 
 function buildTable(ufo) {
-  //clearing existing
+  //clearing existing to start over
   tbody.html("");
 
   //loop through the data and append the rows to the table
@@ -14,7 +14,7 @@ function buildTable(ufo) {
     var row = tbody.append("tr");
     console.log(row);
 
-    //loop through each field and add it to a cell
+    //loop through each field and log
     Object.values(dataRow).forEach((val) => {
       var cell = row.append("td");
         cell.text(val);
@@ -26,7 +26,7 @@ function buildTable(ufo) {
 //function to handle the clicks :)
 function handleClick() {
 
-  //f'ing refresh 
+  //refresh 
   d3.event.preventDefault();
 
   //get the date from the button
@@ -51,7 +51,6 @@ function handleClick() {
 
 //button click
 d3.selectAll("#filter-btn").on("click", handleClick);
-//i'm not sure how to console.log a button click
 
 //load default
 buildTable(ufo);
